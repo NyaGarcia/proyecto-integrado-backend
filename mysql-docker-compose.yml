@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: nya-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secretpassword
+      MYSQL_USER: nya
+      MYSQL_PASSWORD: secretpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
